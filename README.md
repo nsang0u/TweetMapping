@@ -42,7 +42,7 @@ cd into old_tweets, then into my_GetOldTweets. From there, if you want to run yo
 
 If you don't want to run your own data pulls, I have provided the geo data from the tweets obtained in the data pull outlined above in the file tweet_coords.csv. 
 To create your image, import pillow into your environment and run 
-    "python3 exec.py tweet_coords.csv election-data/boundaries/US-states.csv output.png 1024"
+    "python3 exec.py tweet_coords.csv US-states.csv output.png 1024"
 The arguments follow the form:
     "tweet coordinate data source, boundary data source [for generating the map of the US], desired output filename, width of image"
 This will generate an image at the filename specified. 
