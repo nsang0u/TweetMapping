@@ -1,4 +1,6 @@
-#within this doc
+'''
+Geo_pull extracts tweet location geocode / date tuples from CSV. get_coords translates geocode to coordinate and writes these to a new csv. 
+'''
 import csv
 import geopy
 from geopy.geocoders import Nominatim
@@ -7,20 +9,29 @@ GEOCOL = 5
 DATECOL = 2
 
 def geo_pull():
-    """Returns a set of tweet locations from the csv file of #blacklivesmatter
-    tweets"""
+    """
+    Returns a set of tweet locations from the csv file of #blacklivesmatter tweets. 
+    """
     with open('output_got.csv', 'r') as fin:
         tweet_data = list(csv.reader(fin, delimiter=';'))
         geo_set = {(row[GEOCOL],row[DATECOL]) for row in tweet_data[1:] if len(row[GEOCOL])<50 and len(row[GEOCOL])>1}
         #added row[DATECOL]^^
-    #for geo in geo_set:
     #    print(str(geo))
     return geo_set
     #set of locations
 
 def get_coords(location_set):
-    """Uses geopy to pull coordinates from the geo_set, passes over errors from
-    set items that arent coordinates, returns set of long/lat tuples."""
+    """
+    Args: 
+        location_set: set of tuples of geo data and date for tweets. 
+    
+    Iterates over geo,date tuples transforming location name to coordinates. Writes coordinate,date tuples to csv. 
+    Parses date frome date string 
+
+    Old description: 
+        Uses geopy to pull coordinates from the geo_set, passes over errors from
+        set items that arent coordinates, returns set of long/lat tuples.
+    """
     from geopy.geocoders import Nominatim
     #coord_list = list()
     #print(str(location_set)+"!")

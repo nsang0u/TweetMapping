@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+'''
+Takes tweet search parameters from commandline and passes a call to got3.manager.TweetManager.getTweets to fetch the tweets and write them to 
+CSV per column specification hardcoded here. 
+'''
+
 import sys
 import getopt
 import got3

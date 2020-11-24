@@ -1,3 +1,7 @@
+'''
+Examples of how to query for tweets with 'got' package. 
+'''
+
 import got
 
 def main():
